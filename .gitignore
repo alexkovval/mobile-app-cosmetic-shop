@@ -1,0 +1,5 @@
+# Editor/OS noise that shows up at every level of the repo, not just
+# backend/ or mobile/ (those have their own .gitignore for their
+# node_modules/build output/.env — this one is just for the shared stuff).
+.DS_Store
+*.log
