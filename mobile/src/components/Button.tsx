@@ -41,12 +41,12 @@ export function Button({ title, onPress, variant = "primary", disabled, loading,
       ]}
     >
       {loading ? (
-        <ActivityIndicator color={variant === "outline" ? colors.primary : colors.white} />
+        <ActivityIndicator color={variant === "primary" ? colors.white : colors.text} />
       ) : (
         <Text
           style={[
             typography.button,
-            variant === "outline" ? { color: colors.primary } : { color: colors.white },
+            variant === "primary" ? { color: colors.white } : { color: colors.text },
           ]}
         >
           {title}
@@ -56,6 +56,11 @@ export function Button({ title, onPress, variant = "primary", disabled, loading,
   );
 }
 
+// primary = solid dark (bg-neutral-900/white text), secondary = light gray
+// fill (bg-neutral-100/dark text), outline = bordered only — mirrors the
+// web edition's Button.tsx primary/secondary variants, plus a bordered
+// style for icon-ish controls like the quantity stepper (same job as the
+// web CartLineItem's `border border-neutral-300` +/- buttons).
 const styles = StyleSheet.create({
   base: {
     borderRadius: radii.md,
@@ -66,8 +71,8 @@ const styles = StyleSheet.create({
     minHeight: 48,
   },
   primary: { backgroundColor: colors.primary },
-  secondary: { backgroundColor: colors.text },
-  outline: { backgroundColor: "transparent", borderWidth: 1.5, borderColor: colors.primary },
+  secondary: { backgroundColor: colors.surfaceMuted },
+  outline: { backgroundColor: "transparent", borderWidth: 1, borderColor: colors.border },
   disabled: { opacity: 0.5 },
   pressed: { opacity: 0.85 },
 });

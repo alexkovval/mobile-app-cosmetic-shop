@@ -8,7 +8,10 @@ export type AuthStackParamList = {
 };
 
 export type ProductsStackParamList = {
-  ProductList: { initialSearchFocus?: boolean } | undefined;
+  // initialCategory lets a "Shop by category" tile (Home screen) jump
+  // straight into the Search tab pre-filtered — mirrors the web edition's
+  // /shop?category=... links.
+  ProductList: { initialSearchFocus?: boolean; initialCategory?: string } | undefined;
   ProductDetail: { productId: string };
 };
 

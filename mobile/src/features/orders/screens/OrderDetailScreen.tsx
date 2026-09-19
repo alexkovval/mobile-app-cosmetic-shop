@@ -8,6 +8,7 @@ import { apiErrorMessage } from "../../../lib/errors";
 import { formatCents } from "../../../lib/money";
 import { OrdersStackParamList } from "../../../navigation/types";
 import { colors, radii, spacing, typography } from "../../../theme";
+import { OrderItem } from "../../../types";
 import { OrderStatusBadge } from "../components/OrderStatusBadge";
 import { useOrder } from "../hooks/useOrder";
 
@@ -47,7 +48,7 @@ export function OrderDetailScreen({ route }: Props) {
 
       <View style={styles.card}>
         <Text style={[typography.subtitle, styles.sectionTitle]}>Items</Text>
-        {order.items?.map((item) => (
+        {order.items?.map((item: OrderItem) => (
           <View key={item.id} style={styles.row}>
             <Text style={[typography.body, styles.itemName]} numberOfLines={1}>
               {item.quantity}× {item.nameSnapshot}

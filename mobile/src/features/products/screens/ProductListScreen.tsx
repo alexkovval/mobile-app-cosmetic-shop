@@ -27,10 +27,18 @@ const PAGE_SIZE = 20;
  */
 export function ProductListScreen({ route, navigation }: Props) {
   const [searchInput, setSearchInput] = useState("");
-  const [category, setCategory] = useState<string | undefined>(undefined);
+  const [category, setCategory] = useState<string | undefined>(route.params?.initialCategory);
   const [limit, setLimit] = useState(PAGE_SIZE);
   const debouncedSearch = useDebouncedValue(searchInput, 300);
   const listRef = useRef<FlatList>(null);
+
+  // The Home screen's category tiles navigate here with a fresh
+  // initialCategory each time — but if this tab's stack already had this
+  // screen mounted, the useState initializer above only ran once, so pick
+  // up later category changes too.
+  useEffect(() => {
+    if (route.params?.initialCategory) setCategory(route.params.initialCategory);
+  }, [route.params?.initialCategory]);
 
   // A new search/category resets pagination — otherwise "load more" state
   // from the previous filter would leak into the new one.
@@ -90,6 +98,13 @@ export function ProductListScreen({ route, navigation }: Props) {
           numColumns={2}
           contentContainerStyle={styles.grid}
           columnWrapperStyle={styles.column}
+          // iOS pads a UIScrollView's top automatically to account for a
+          // safe area/nav bar whenever content is shorter than the visible
+          // area — that's exactly the "gap only when under ~3 rows" pattern.
+          // Screen already handles the safe area, so tell this list not to
+          // do it again.
+          contentInsetAdjustmentBehavior="never"
+          automaticallyAdjustContentInsets={false}
           renderItem={({ item }) => (
             <ProductCard product={item} onPress={() => navigation.navigate("ProductDetail", { productId: item.id })} />
           )}
@@ -113,6 +128,6 @@ export function ProductListScreen({ route, navigation }: Props) {
 const styles = StyleSheet.create({
   header: { paddingHorizontal: spacing.lg, paddingTop: spacing.xs, paddingBottom: spacing.xs },
   grid: { paddingHorizontal: spacing.lg, paddingBottom: spacing.xxl },
-  column: { justifyContent: "space-between"},
+  column: { justifyContent: "space-between" },
   loadMore: { marginTop: spacing.sm, marginBottom: spacing.lg },
 });

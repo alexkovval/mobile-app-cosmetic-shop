@@ -13,6 +13,11 @@ type TypeScale = Record<
   TextStyle
 >;
 
+// Plain system font throughout — matches the web edition, which uses no
+// custom typeface either. The old heroTitle/heroSubtitle used a loaded
+// serif (Playfair Display) for the Home screen wordmark; that's gone along
+// with the rest of the warm/pink beauty branding (see theme/colors.ts), so
+// there's nothing left to load a custom font for.
 export const typography: TypeScale = {
   displaySmall: { fontSize: 26, fontWeight: "700", letterSpacing: -0.3 },
   title: { fontSize: 20, fontWeight: "700" },
@@ -25,9 +30,6 @@ export const typography: TypeScale = {
   // default line box inside small fixed-padding containers.
   caption: { fontSize: 13, fontWeight: "400", lineHeight: 18 },
   button: { fontSize: 15, fontWeight: "600" },
-  // Elegant serif reserved for the Shop screen's hero — loaded via
-  // @expo-google-fonts/playfair-display in App.tsx. Falls back silently to
-  // the system font on the one frame before fonts finish loading.
-  heroTitle: { fontFamily: "PlayfairDisplay_600SemiBold", fontSize: 34, letterSpacing: 0.2 },
-  heroSubtitle: { fontFamily: "PlayfairDisplay_400Regular_Italic", fontSize: 15, lineHeight: 22 },
+  heroTitle: { fontSize: 28, fontWeight: "700", letterSpacing: -0.3 },
+  heroSubtitle: { fontSize: 15, fontWeight: "400", lineHeight: 21 },
 };
