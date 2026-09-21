@@ -197,14 +197,16 @@ The one test worth reading first is `backend/tests/orders.duplicate.test.ts` —
 
 ## Screenshots
 
-_Add screenshots/GIFs from your running simulator here — Home, Search (with a category filter selected), product detail, cart, checkout, order confirmation, and order history are the ones worth including._
+| Home | Categories | Product |
+|---|---|---|
+| <img src="docs/screenshots/home.png" width="200"> | <img src="docs/screenshots/categories.png" width="200"> | <img src="docs/screenshots/product.png" width="200"> |
 
-| | |
-|---|---|
-| Home | Search |
-| _screenshot_ | _screenshot_ |
-| Cart | Checkout |
-| _screenshot_ | _screenshot_ |
-| Order confirmation | Order history |
-| _screenshot_ | _screenshot_ |
+| Cart | Checkout — shipping | Checkout — payment |
+|---|---|---|
+| <img src="docs/screenshots/cart.png" width="200"> | <img src="docs/screenshots/checkout-address.png" width="200"> | <img src="docs/screenshots/checkout-payment.png" width="200"> |
+
+| Order details |
+|---|
+| <img src="docs/screenshots/order.png" width="200"> |
+
 # mobile-app-cosmetic-shop
