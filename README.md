@@ -6,6 +6,20 @@ A full-stack cosmetics/beauty e-commerce app built as a portfolio piece: a React
 
 ---
 
+## Screenshots
+
+| Home | Categories | Product |
+|---|---|---|
+| <img src="docs/screenshots/home.png" width="200"> | <img src="docs/screenshots/categories.png" width="200"> | <img src="docs/screenshots/product.png" width="200"> |
+
+| Cart | Checkout — shipping | Checkout — payment |
+|---|---|---|
+| <img src="docs/screenshots/cart.png" width="200"> | <img src="docs/screenshots/checkout-address.png" width="200"> | <img src="docs/screenshots/checkout-payment.png" width="200"> |
+
+| Order details |
+|---|
+| <img src="docs/screenshots/order.png" width="200"> |
+
 ## Features
 
 - **Browse** — product grid with search (debounced) and category filters, product detail with a quantity stepper.
@@ -194,19 +208,5 @@ cd mobile && npm test
 ```
 
 The one test worth reading first is `backend/tests/orders.duplicate.test.ts` — it's the proof that the checkout guard described above actually works, not just a description of intent.
-
-## Screenshots
-
-| Home | Categories | Product |
-|---|---|---|
-| <img src="docs/screenshots/home.png" width="200"> | <img src="docs/screenshots/categories.png" width="200"> | <img src="docs/screenshots/product.png" width="200"> |
-
-| Cart | Checkout — shipping | Checkout — payment |
-|---|---|---|
-| <img src="docs/screenshots/cart.png" width="200"> | <img src="docs/screenshots/checkout-address.png" width="200"> | <img src="docs/screenshots/checkout-payment.png" width="200"> |
-
-| Order details |
-|---|
-| <img src="docs/screenshots/order.png" width="200"> |
 
 # mobile-app-cosmetic-shop
